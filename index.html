@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Mundo de Amalia | Fundación</title>
+<style>
+:root{
+ --green:#176b60;--green2:#2e7869;--coral:#f35e5b;--yellow:#f8c84e;
+ --cream:#fff9ed;--mint:#edf6e9;--ink:#194f49;--text:#52666a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fffdf8}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1180px,94%);margin:auto}
+
+/* TOP NAV — kept on one line on desktop, matching the reference */
+header{height:88px;background:rgba(255,255,255,.97);position:sticky;top:0;z-index:100;border-bottom:1px solid #eee8dd}
+.nav{height:88px;display:flex;align-items:center;gap:22px;white-space:nowrap}
+.brand{flex:0 0 315px;height:82px;display:flex;align-items:center}
+.brand img{width:305px;height:80px;object-fit:contain;object-position:left center}
+.links{display:flex;align-items:center;justify-content:flex-end;gap:20px;flex:1;font-size:13px;font-weight:700;color:#43565c}
+.links a{padding:7px 0}
+.links a:hover{color:var(--coral)}
+.part{background:var(--coral);color:#fff!important;padding:13px 20px!important;border-radius:30px;box-shadow:0 7px 18px #f35e5b33}
+.menu{display:none;background:none;border:0;font-size:29px;color:var(--green)}
+
+/* HERO */
+.hero{background:
+ radial-gradient(circle at 2% 75%,#cce2c0 0 7%,transparent 7.2%),
+ radial-gradient(circle at 92% 14%,#ffe7ae 0 7%,transparent 7.2%),
+ linear-gradient(120deg,#fff8e9,#fffdf8 55%,#eef7e9);overflow:hidden}
+.hero-grid{min-height:575px;display:grid;grid-template-columns:1fr 1.04fr;align-items:center;gap:34px}
+.copy{padding:35px 0 45px 25px;max-width:590px;display:flex;flex-direction:column;justify-content:center}
+.kicker{font-size:13px;letter-spacing:.25em;font-weight:800;color:var(--green2);margin-bottom:12px}
+h1,.script{font-family:"Trebuchet MS",Arial,sans-serif}
+h1{font-size:clamp(45px,5.4vw,72px);line-height:.98;letter-spacing:-2px;margin-bottom:18px;color:var(--green)}
+h1 em{display:block;color:var(--coral);font-style:italic}
+.copy p{max-width:575px;font-size:16px;line-height:1.55;color:var(--text);margin-bottom:23px}
+.btn{display:inline-flex;align-items:center;gap:9px;border-radius:28px;padding:13px 22px;font-weight:800}
+.btn-green{background:var(--green);color:#fff}
+.hero-image{height:575px;min-width:0;overflow:hidden;border-radius:160px 0 0 0;position:relative}
+.hero-image img{width:100%;height:100%;object-fit:cover}
+.hero-image:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,249,237,.25),transparent 30%)}
+.story-btn{margin-top:2px;white-space:nowrap}.note{position:absolute;right:28px;bottom:38px;z-index:2;background:#fff0bd;color:var(--green);border-radius:50%;width:130px;height:130px;display:grid;place-items:center;text-align:center;padding:18px;font:700 italic 17px Georgia;transform:rotate(-4deg)}
+.leaf-note{position:absolute;left:35px;bottom:40px;color:var(--green2);font:italic 700 18px Georgia;z-index:2}
+
+/* VALUES */
+.values{background:#fff;padding:35px 0 40px}
+.value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.value{text-align:center;padding:5px 12px}
+.ico{width:70px;height:70px;border-radius:50%;margin:auto;display:grid;place-items:center;color:#fff;font-size:30px}
+.i1{background:#f4877c}.i2{background:#9fbd92}.i3{background:#f2bf43}.i4{background:#73aaa0}
+.value h3{font-size:18px;margin:9px 0 4px}.value p{font-size:13px;color:var(--text);max-width:190px;margin:auto}
+
+/* KARATE — closely matches the reference placement */
+.karate{background:#fff;padding:68px 0 55px;position:relative;overflow:hidden}
+.karate-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.karate h2{font-family:Georgia,serif;font-size:65px;line-height:.95;margin-bottom:10px;color:var(--green);font-style:italic}
+.karate h2 span{color:var(--coral)}
+.karate h3{font-size:20px;margin-bottom:8px}.karate p{color:var(--text);font-size:14px;max-width:570px}
+.logos{display:flex;align-items:center;justify-content:center;gap:26px}
+.logos img{width:205px;height:205px;object-fit:contain}
+.logos .academy{width:220px;height:220px}
+.vline{width:1px;height:210px;background:#d9dfd6}
+.small-script{font:italic 18px Georgia;color:var(--green);margin-top:15px}
+
+
+/* ARTES MARCIALES — bloque único */
+.artes-marciales{background:linear-gradient(145deg,#fffdf8,#f2f8ed);padding:68px 0 60px}
+.artes-marciales h2{margin-bottom:26px}
+.artes-poster{max-width:1050px;margin:0 auto;border-radius:28px;overflow:hidden;background:#fff;box-shadow:0 16px 42px rgba(23,107,96,.14)}
+.artes-poster img{display:block;width:100%;height:auto}
+@media(max-width:560px){.artes-marciales{padding:48px 0}.artes-poster{border-radius:16px}}
+
+/* IMPACT */
+.impact{background:#f3f8ee;padding:58px 0 62px}
+.impact-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:25px}
+.impact h2{font:italic 700 40px Georgia;color:var(--green)}.impact h2 span{color:var(--coral)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{background:#fff;border-radius:18px;padding:22px;text-align:center;min-height:185px;box-shadow:0 8px 20px #315f4d0a}
+.card .ci{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;margin:0 auto 12px;font-size:23px}
+.c1{background:#f7b4ab}.c2{background:#f3d06c}.c3{background:#bcd5b4}.c4{background:#c9bfe1}
+.card h3{font-size:16px;margin-bottom:7px}.card p{font-size:13px;color:var(--text)}
+
+/* CTA */
+.cta{background:var(--cream);padding:34px 0}
+.cta-box{display:flex;align-items:center;justify-content:space-between;gap:25px}
+.cta h2{font:italic 700 39px Georgia;color:var(--green)}.cta h2 span{color:var(--coral)}
+.cta p{font-size:14px;color:var(--text);margin-top:4px}
+.cta .btn{margin-left:auto}
+
+/* FOOTER */
+footer{background:#1e6657;color:#eaf4ea;padding:40px 0 16px}
+.foot{display:grid;grid-template-columns:1.35fr .75fr .8fr 1fr;gap:38px}
+.flogo{width:160px;background:#fff;border-radius:14px;padding:4px;margin-bottom:10px}
+footer h3{font-size:15px;margin-bottom:9px;color:#fff}footer p,footer li{font-size:13px;color:#c8ddd0}footer ul{list-style:none;display:grid;gap:5px}
+.socials{display:flex;gap:8px;margin:9px 0}.social{width:34px;height:34px;background:#fff;color:var(--green);border-radius:50%;display:grid;place-items:center;font-weight:900}
+.copy{border-top:1px solid #ffffff25;margin-top:25px;padding-top:13px;display:flex;justify-content:space-between;font-size:11px;color:#bdd2c4}
+
+/* MOBILE */
+@media(max-width:1050px){
+ .brand{flex-basis:250px}.brand img{width:240px}.links{gap:13px;font-size:12px}
+}
+@media(max-width:850px){
+ header,.nav{height:78px}.brand{height:76px;flex:1}.brand img{width:235px;height:72px}.links{display:none}.menu{display:block}
+ .links.mobile{display:flex;position:absolute;top:78px;left:0;right:0;flex-direction:column;background:#fffdf8;padding:20px;gap:14px;box-shadow:0 15px 25px #0001}
+ .hero-grid,.karate-grid{grid-template-columns:1fr}.hero-image{height:430px;border-radius:0}.story-btn{white-space:normal}.copy{padding:45px 0}.value-grid{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:repeat(2,1fr)}
+ .impact-head{display:block}.cta-box{display:block}.cta .btn{margin-top:15px}.foot{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+ .brand img{width:205px}.hero h1{font-size:45px}.hero-image{height:350px}.value-grid,.cards,.foot{grid-template-columns:1fr}.logos img{width:140px;height:140px}.logos .academy{width:155px;height:155px}.vline{height:150px}.karate h2{font-size:52px}.copy{padding:40px 0}.copy p{font-size:15px}
+ .copy-block{}
+ .copy{padding-left:5px}
+}
+
+/* Galería rotativa — Artes Marciales */
+.artes-gallery{
+  position:relative;
+  width:100%;
+  max-width:1120px;
+  margin:38px auto 0;
+  border-radius:28px;
+  overflow:hidden;
+  background:#f3f7ee;
+  box-shadow:0 16px 38px rgba(23,79,73,.14);
+}
+.artes-gallery-track{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/8;
+  min-height:320px;
+}
+.artes-slide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity .65s ease;
+}
+.artes-slide.active{opacity:1}
+.artes-gallery-prev,
+.artes-gallery-next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:3;
+  width:44px;
+  height:44px;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.9);
+  color:#176b60;
+  font-size:32px;
+  line-height:40px;
+  cursor:pointer;
+  box-shadow:0 6px 16px rgba(0,0,0,.14);
+}
+.artes-gallery-prev{left:18px}
+.artes-gallery-next{right:18px}
+.artes-gallery-prev:hover,
+.artes-gallery-next:hover{background:#fff}
+.artes-gallery-dots{
+  position:absolute;
+  left:50%;
+  bottom:16px;
+  transform:translateX(-50%);
+  display:flex;
+  gap:7px;
+  z-index:3;
+}
+.artes-gallery-dots button{
+  width:9px;
+  height:9px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.65);
+  cursor:pointer;
+}
+.artes-gallery-dots button.active{background:#f35e5b;transform:scale(1.2)}
+@media(max-width:700px){
+  .artes-gallery{border-radius:20px;margin-top:26px}
+  .artes-gallery-track{aspect-ratio:4/3;min-height:0}
+  .artes-gallery-prev,.artes-gallery-next{width:38px;height:38px;font-size:27px}
+  .artes-gallery-prev{left:10px}.artes-gallery-next{right:10px}
+}
+
+
+/* QUIÉNES SOMOS */
+.quienes{background:#fffdf8;padding:78px 0 72px}
+.quienes-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:65px;align-items:center}
+.quienes-image{position:relative;border-radius:34px;overflow:hidden;min-height:450px;box-shadow:0 16px 38px rgba(23,79,73,.13)}
+.quienes-image img{width:100%;height:100%;min-height:450px;display:block;object-fit:cover}
+.quienes-badge{position:absolute;right:22px;bottom:22px;width:118px;height:118px;border-radius:50%;background:#fff1bd;color:#f35e5b;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:30px;font-weight:700;transform:rotate(-4deg);box-shadow:0 8px 20px rgba(0,0,0,.12)}
+.quienes-badge span{font:italic 700 14px Georgia;color:#176b60;line-height:1.05;margin-top:3px}
+.quienes-copy h2{font:italic 700 47px Georgia;color:#176b60;line-height:1.03;margin:7px 0 20px}
+.quienes-copy h2 span{color:#f35e5b}
+.quienes-copy>p{font-size:16px;line-height:1.65;color:#52666a;max-width:650px;margin-bottom:15px}
+.quienes-values{display:flex;gap:14px;margin-top:27px}
+.quienes-values div{display:flex;align-items:center;gap:9px;background:#f1f7ed;border-radius:18px;padding:10px 14px;color:#176b60;font-weight:700;font-size:13px}
+.quienes-values b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#f35e5b;color:#fff;font-size:16px}
+.quienes-values div:nth-child(2) b{background:#f3bf45}
+.quienes-values div:nth-child(3) b{background:#2fa8a0}
+@media(max-width:850px){
+ .quienes{padding:58px 0}.quienes-grid{grid-template-columns:1fr;gap:32px}.quienes-image,.quienes-image img{min-height:350px}.quienes-copy h2{font-size:40px}
+}
+@media(max-width:560px){
+ .quienes-values{flex-direction:column}.quienes-values div{justify-content:center}.quienes-copy h2{font-size:36px}
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap nav">
+<a class="brand" href="#inicio"><img src="imagenes/logo-superior-transparente.png" alt="El Mundo de Amalia"></a>
+<nav class="links" id="links">
+<a href="#inicio">Inicio</a>
+<a href="#nosotros">Quiénes somos</a>
+<a href="#que-hacemos">Qué hacemos</a>
+<a href="#karate">Artes Marciales</a>
+<a href="#contacto">Contacto</a>
+<a class="part" href="#contacto">♡ Quiero ser parte</a>
+</nav>
+<button class="menu" onclick="document.getElementById('links').classList.toggle('mobile')" aria-label="Menú">☰</button>
+</div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+<div class="wrap hero-grid">
+<div class="copy">
+<div class="kicker">CONECTAMOS SUEÑOS</div>
+<h1>Un mundo<br>más inclusivo<br><em>es posible ♥</em></h1>
+
+
+
+</div>
+<div class="hero-image">
+<img src="imagenes/hero-karate.jpg" alt="Taller de Artes Marciales">
+<div class="note">Todos los<br>sueños<br>cuentan ♥</div>
+</div>
+</div>
+</section>
+
+<section class="values" id="comunidad"><div class="wrap value-grid">
+<div class="value"><div class="ico i1">♥</div><h3>Inclusión</h3><p>Creemos en un mundo donde todos y todas tengan un lugar.</p></div>
+<div class="value"><div class="ico i2">👥</div><h3>Acompañamiento</h3><p>Apoyamos a las familias en cada etapa del camino.</p></div>
+<div class="value"><div class="ico i3">★</div><h3>Desarrollo</h3><p>Potenciamos habilidades y talentos únicos.</p></div>
+<div class="value"><div class="ico i4">🌱</div><h3>Comunidad</h3><p>Conectamos personas para generar más oportunidades.</p></div>
+</div></section>
+
+
+<section class="quienes" id="nosotros">
+  <div class="wrap">
+    <div class="quienes-grid">
+      <div class="quienes-image">
+        <img src="imagenes/artes-marciales-1.jpeg" alt="Comunidad de El Mundo de Amalia">
+        <div class="quienes-badge">♥<span>Inclusión<br>sin límites</span></div>
+      </div>
+      <div class="quienes-copy">
+        <div class="kicker">QUIÉNES SOMOS</div>
+        <h2>Conectamos sueños,<br><span>potenciamos habilidades.</span></h2>
+        <p>Somos una fundación comprometida con la construcción de un mundo más inclusivo, donde cada niño, niña y joven pueda desarrollar sus habilidades, participar y avanzar a su propio ritmo.</p>
+        <p>Creemos que la inclusión se construye en comunidad. Por eso generamos espacios de encuentro, acompañamiento y actividades que promueven el bienestar, la participación, el vínculo, la adaptación, el desarrollo individual y el reconocimiento de cada logro.</p>
+        <div class="quienes-values">
+          <div><b>♥</b><span>Más inclusión</span></div>
+          <div><b>★</b><span>Más oportunidades</span></div>
+          <div><b>∞</b><span>Más futuros</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="impact" id="que-hacemos"><div class="wrap">
+<div class="impact-head"><div><div class="kicker">¿QUÉ HACEMOS?</div><h2>Acciones que <span>generan un impacto real</span></h2></div><a class="btn btn-green" href="https://www.instagram.com/conecta_mundo_amalia/" target="_blank">Ver todas nuestras iniciativas →</a></div>
+<div class="cards">
+<div class="card"><div class="ci c1">🎓</div><h3>Orientación y apoyo familiar</h3><p>Entregamos información, contención y acompañamiento en los procesos.</p></div>
+<div class="card"><div class="ci c2">👥</div><h3>Actividades y talleres</h3><p>Generamos espacios de aprendizaje, juego y desarrollo de habilidades.</p></div>
+<div class="card"><div class="ci c3">♥</div><h3>Conciencia e inclusión</h3><p>Promovemos una sociedad más informada, respetuosa y empática.</p></div>
+<div class="card"><div class="ci c4">🤝</div><h3>Red de apoyo</h3><p>Conectamos familias, profesionales y organizaciones para crear oportunidades.</p></div>
+</div></div></section>
+<section class="karate artes-marciales" id="karate">
+  <div class="wrap">
+    <div class="kicker">TALLERES</div>
+    <h2>Artes <span>Marciales</span></h2>
+    <div class="artes-poster">
+      <img src="imagenes/artes-marciales-propuesta.png" alt="Artes Marciales inclusivas - Método A.T.A.L. con Sebastián Atal">
+    </div>
+  </div>
+
+
+<div class="artes-gallery" aria-label="Galería de Artes Marciales inclusivas">
+  <div class="artes-gallery-track">
+    <img class="artes-slide active" src="imagenes/artes-marciales-1.jpeg" alt="Familias y participantes de Artes Marciales inclusivas">
+    <img class="artes-slide" src="imagenes/artes-marciales-2.jpeg" alt="Taller de Artes Marciales inclusivas">
+    <img class="artes-slide" src="imagenes/artes-marciales-3.jpeg" alt="Actividad y graduación de Artes Marciales inclusivas">
+    <img class="artes-slide" src="imagenes/artes-marciales-4.jpeg" alt="Actividad inclusiva de Artes Marciales">
+    <img class="artes-slide" src="imagenes/artes-marciales-5.jpeg" alt="Grupo de Artes Marciales inclusivas">
+    <img class="artes-slide" src="imagenes/artes-marciales-6.jpeg" alt="Ilustración de El Mundo de Amalia y Artes Marciales">
+    <img class="artes-slide" src="imagenes/artes-marciales-7.jpeg" alt="Comunidad de El Mundo de Amalia">
+  </div>
+  <button class="artes-gallery-prev" aria-label="Imagen anterior">‹</button>
+  <button class="artes-gallery-next" aria-label="Imagen siguiente">›</button>
+  <div class="artes-gallery-dots" aria-label="Seleccionar imagen"></div>
+</div>
+
+</section>
+
+
+
+<section class="cta" id="contacto"><div class="wrap cta-box">
+<div><div class="kicker">SÉ PARTE</div><h2>Si quieres ser parte de nuestra <span>fundación, escríbenos.</span></h2><p>Nos encantará conocerte y conectar contigo.</p></div>
+<a class="btn coral" href="https://www.instagram.com/conecta_mundo_amalia/" target="_blank">Escríbenos →</a>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+<div class="foot">
+<div><img class="flogo" src="imagenes/logo-superior-transparente.png" alt="El Mundo de Amalia"><p>Conectamos sueños, potenciamos habilidades, construimos un mundo más inclusivo.</p></div>
+<div><h3>Navegación</h3><ul><li><a href="#inicio">Inicio</a></li><li><a href="#nosotros">Quiénes somos</a></li><li><a href="#que-hacemos">Qué hacemos</a></li><li><a href="#karate">Artes Marciales</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+<div><h3>Síguenos</h3><div class="socials"><a class="social" href="https://www.instagram.com/conecta_mundo_amalia/" target="_blank">◎</a><a class="social" href="https://www.facebook.com/profile.php?id=61590034307748&locale=es_LA" target="_blank">f</a></div><p>Conoce más de nuestro día a día en redes sociales.</p></div>
+<div><h3>Contacto</h3><p>Si quieres ser parte de nuestra fundación, escríbenos al whatsApp +56 9 5199 8131.</p><h3></h3><p>Huechuraba - Pedro Aguirre Cerda</p><br><a class="btn coral" href="https://www.instagram.com/conecta_mundo_amalia/" target="_blank">Escríbenos al Instagram ↗</a></div>
+</div>
+<div class="copy"><span>© 2026 Cybenews.cl Todos los derechos reservados.</span><span>Un mundo más inclusivo es posible ♥</span></div>
+</div></footer>
+<script>
+document.querySelectorAll('#links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('links').classList.remove('mobile')));
+</script>
+
+<script>
+(function(){
+  const gallery = document.querySelector('.artes-gallery');
+  if(!gallery) return;
+  const slides = [...gallery.querySelectorAll('.artes-slide')];
+  const dotsWrap = gallery.querySelector('.artes-gallery-dots');
+  const prev = gallery.querySelector('.artes-gallery-prev');
+  const next = gallery.querySelector('.artes-gallery-next');
+  let current = 0, timer;
+
+  slides.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Ver imagen ' + (i+1));
+    b.addEventListener('click', () => show(i, true));
+    dotsWrap.appendChild(b);
+  });
+  const dots = [...dotsWrap.children];
+
+  function show(i, resetTimer){
+    current = (i + slides.length) % slides.length;
+    slides.forEach((s,n)=>s.classList.toggle('active', n===current));
+    dots.forEach((d,n)=>d.classList.toggle('active', n===current));
+    if(resetTimer) restart();
+  }
+  function restart(){
+    clearInterval(timer);
+    timer = setInterval(()=>show(current+1, false), 5000);
+  }
+  prev.addEventListener('click', ()=>show(current-1, true));
+  next.addEventListener('click', ()=>show(current+1, true));
+  gallery.addEventListener('mouseenter', ()=>clearInterval(timer));
+  gallery.addEventListener('mouseleave', restart);
+  gallery.addEventListener('focusin', ()=>clearInterval(timer));
+  gallery.addEventListener('focusout', restart);
+  show(0, false);
+  restart();
+})();
+</script>
+
+</body>
+</html>
